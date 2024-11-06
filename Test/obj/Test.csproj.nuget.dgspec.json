@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/pintya/Test/Test.csproj": {}
+    "/home/pintya/nimap-test/Test/Test.csproj": {}
   },
   "projects": {
-    "/home/pintya/Test/Test.csproj": {
+    "/home/pintya/nimap-test/Test/Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/pintya/Test/Test.csproj",
+        "projectUniqueName": "/home/pintya/nimap-test/Test/Test.csproj",
         "projectName": "Test",
-        "projectPath": "/home/pintya/Test/Test.csproj",
+        "projectPath": "/home/pintya/nimap-test/Test/Test.csproj",
         "packagesPath": "/home/pintya/.nuget/packages/",
-        "outputPath": "/home/pintya/Test/obj/",
+        "outputPath": "/home/pintya/nimap-test/Test/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/pintya/.nuget/NuGet/NuGet.Config"
@@ -42,25 +42,17 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[8.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.SQLite": {
               "target": "Package",
-              "version": "[8.0.8, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[8.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.8, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[8.0.5, )"
+              "version": "[8.0.10, )"
             }
           },
           "imports": [
@@ -82,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.108/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.110/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

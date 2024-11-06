@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 public class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-
+    
     public DbSet<Category> Categories { get; set; }
     public DbSet<Product> Products { get; set; }
 
@@ -21,7 +21,11 @@ public class ApplicationDbContext : DbContext
             new Product { ProductId = 1, ProductName = "Laptop", CategoryId = 1 },
             new Product { ProductId = 2, ProductName = "Smartphone", CategoryId = 1 },
             new Product { ProductId = 3, ProductName = "Novel", CategoryId = 2 },
-            new Product { ProductId = 4, ProductName = "T-Shirt", CategoryId = 3 }
+            new Product { ProductId = 4, ProductName = "T-Shirt", CategoryId = 3 },
+            new Product { ProductId = 5, ProductName = "Earpod", CategoryId = 1 },
+            new Product { ProductId = 6, ProductName = "Speaker", CategoryId = 1 },
+            new Product { ProductId = 7, ProductName = "Literature", CategoryId = 2 },
+            new Product { ProductId = 8, ProductName = "Jeans", CategoryId = 3 }
         );
     }
 }

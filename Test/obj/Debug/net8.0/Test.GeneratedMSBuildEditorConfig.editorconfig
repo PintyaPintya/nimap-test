@@ -1,87 +1,79 @@
 is_global = true
 build_property.TargetFramework = net8.0
-build_property.TargetFramework = net8.0
-build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
-build_property.UsingMicrosoftNETSdkWeb = true
-build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
-build_property.InvariantGlobalization = 
-build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
-build_property.EnforceExtendedAnalyzerRules = 
-build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Test
 build_property.RootNamespace = Test
-build_property.ProjectDir = /home/pintya/Test/
+build_property.ProjectDir = /home/pintya/nimap-test/Test/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /home/pintya/Test
+build_property.MSBuildProjectDirectory = /home/pintya/nimap-test/Test
 build_property._RazorSourceGeneratorDebug = 
 
-[/home/pintya/Test/Views/Categories/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcmllcy9DcmVhdGUuY3NodG1s
+[/home/pintya/nimap-test/Test/Views/Category/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/Categories/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcmllcy9EZWxldGUuY3NodG1s
+[/home/pintya/nimap-test/Test/Views/Category/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/Categories/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcmllcy9FZGl0LmNzaHRtbA==
+[/home/pintya/nimap-test/Test/Views/Category/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/Categories/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcmllcy9JbmRleC5jc2h0bWw=
+[/home/pintya/nimap-test/Test/Views/Category/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/Home/Index.cshtml]
+[/home/pintya/nimap-test/Test/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/Home/Privacy.cshtml]
+[/home/pintya/nimap-test/Test/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/Products/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdHMvQ3JlYXRlLmNzaHRtbA==
+[/home/pintya/nimap-test/Test/Views/Product/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/Products/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdHMvRGVsZXRlLmNzaHRtbA==
+[/home/pintya/nimap-test/Test/Views/Product/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/Products/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdHMvRWRpdC5jc2h0bWw=
+[/home/pintya/nimap-test/Test/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/Products/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdHMvSW5kZXguY3NodG1s
+[/home/pintya/nimap-test/Test/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/Shared/Error.cshtml]
+[/home/pintya/nimap-test/Test/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/Shared/_ValidationScriptsPartial.cshtml]
+[/home/pintya/nimap-test/Test/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/_ViewImports.cshtml]
+[/home/pintya/nimap-test/Test/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/_ViewStart.cshtml]
+[/home/pintya/nimap-test/Test/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/pintya/Test/Views/Shared/_Layout.cshtml]
+[/home/pintya/nimap-test/Test/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-rdsx13ilab

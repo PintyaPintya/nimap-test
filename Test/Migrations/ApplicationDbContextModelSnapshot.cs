@@ -13,7 +13,7 @@ namespace Test.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
 
             modelBuilder.Entity("Category", b =>
                 {
@@ -88,6 +88,30 @@ namespace Test.Migrations
                             ProductId = 4,
                             CategoryId = 3,
                             ProductName = "T-Shirt"
+                        },
+                        new
+                        {
+                            ProductId = 5,
+                            CategoryId = 1,
+                            ProductName = "Earpod"
+                        },
+                        new
+                        {
+                            ProductId = 6,
+                            CategoryId = 1,
+                            ProductName = "Speaker"
+                        },
+                        new
+                        {
+                            ProductId = 7,
+                            CategoryId = 2,
+                            ProductName = "Literature"
+                        },
+                        new
+                        {
+                            ProductId = 8,
+                            CategoryId = 3,
+                            ProductName = "Jeans"
                         });
                 });
 
