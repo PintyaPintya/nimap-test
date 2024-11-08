@@ -9,13 +9,32 @@ public class CategoryController : Controller
         _context = context;
     }
 
-    public IActionResult Index()
+    // public IActionResult Index()
+    // {
+    //     var categories = _context.Categories.ToList();
+    //     return View(categories);
+    // }
+
+    public IActionResult Index(int page = 1, int pageSize = 10)
     {
-        var categories = _context.Categories.ToList();
+        var categoriesQuery = _context.Categories
+            .OrderBy(p => p.CategoryId);
+
+        var totalCategories = categoriesQuery.Count();
+
+        var categories = categoriesQuery
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+        ViewBag.CurrentPage = page;
+        ViewBag.PageSize = pageSize;
+        ViewBag.TotalItems = totalCategories;
+
         return View(categories);
     }
 
-    public ActionResult Create()
+    public IActionResult Create()
     {
         return View();
     }

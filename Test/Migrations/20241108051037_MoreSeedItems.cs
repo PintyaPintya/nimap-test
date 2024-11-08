@@ -7,7 +7,7 @@
 namespace Test.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class MoreSeedItems : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -52,7 +52,15 @@ namespace Test.Migrations
                 {
                     { 1, "Electronics" },
                     { 2, "Books" },
-                    { 3, "Clothing" }
+                    { 3, "Clothing" },
+                    { 4, "Furniture" },
+                    { 5, "Sports & Outdoors" },
+                    { 6, "Toys" },
+                    { 7, "Beauty & Health" },
+                    { 8, "Home Appliances" },
+                    { 9, "Automotive" },
+                    { 10, "Grocery" },
+                    { 11, "Music" }
                 });
 
             migrationBuilder.InsertData(
@@ -62,12 +70,19 @@ namespace Test.Migrations
                 {
                     { 1, 1, "Laptop" },
                     { 2, 1, "Smartphone" },
-                    { 3, 2, "Novel" },
-                    { 4, 3, "T-Shirt" },
-                    { 5, 1, "Earpod" },
-                    { 6, 1, "Speaker" },
-                    { 7, 2, "Literature" },
-                    { 8, 3, "Jeans" }
+                    { 3, 1, "Earpod" },
+                    { 4, 1, "Speaker" },
+                    { 5, 1, "Headphones" },
+                    { 6, 2, "Novel" },
+                    { 7, 2, "Science Fiction Book" },
+                    { 8, 2, "Literature" },
+                    { 9, 2, "Textbook" },
+                    { 10, 3, "T-Shirt" },
+                    { 11, 3, "Jeans" },
+                    { 12, 3, "Jacket" },
+                    { 13, 3, "Sweater" },
+                    { 14, 4, "Dining Table" },
+                    { 15, 4, "Chair" }
                 });
 
             migrationBuilder.CreateIndex(

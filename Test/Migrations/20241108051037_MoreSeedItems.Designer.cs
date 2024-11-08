@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Test.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241106122659_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241108051037_MoreSeedItems")]
+    partial class MoreSeedItems
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,46 @@ namespace Test.Migrations
                         {
                             CategoryId = 3,
                             CategoryName = "Clothing"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryName = "Furniture"
+                        },
+                        new
+                        {
+                            CategoryId = 5,
+                            CategoryName = "Sports & Outdoors"
+                        },
+                        new
+                        {
+                            CategoryId = 6,
+                            CategoryName = "Toys"
+                        },
+                        new
+                        {
+                            CategoryId = 7,
+                            CategoryName = "Beauty & Health"
+                        },
+                        new
+                        {
+                            CategoryId = 8,
+                            CategoryName = "Home Appliances"
+                        },
+                        new
+                        {
+                            CategoryId = 9,
+                            CategoryName = "Automotive"
+                        },
+                        new
+                        {
+                            CategoryId = 10,
+                            CategoryName = "Grocery"
+                        },
+                        new
+                        {
+                            CategoryId = 11,
+                            CategoryName = "Music"
                         });
                 });
 
@@ -83,38 +123,80 @@ namespace Test.Migrations
                         new
                         {
                             ProductId = 3,
-                            CategoryId = 2,
-                            ProductName = "Novel"
-                        },
-                        new
-                        {
-                            ProductId = 4,
-                            CategoryId = 3,
-                            ProductName = "T-Shirt"
-                        },
-                        new
-                        {
-                            ProductId = 5,
                             CategoryId = 1,
                             ProductName = "Earpod"
                         },
                         new
                         {
-                            ProductId = 6,
+                            ProductId = 4,
                             CategoryId = 1,
                             ProductName = "Speaker"
                         },
                         new
                         {
+                            ProductId = 5,
+                            CategoryId = 1,
+                            ProductName = "Headphones"
+                        },
+                        new
+                        {
+                            ProductId = 6,
+                            CategoryId = 2,
+                            ProductName = "Novel"
+                        },
+                        new
+                        {
                             ProductId = 7,
+                            CategoryId = 2,
+                            ProductName = "Science Fiction Book"
+                        },
+                        new
+                        {
+                            ProductId = 8,
                             CategoryId = 2,
                             ProductName = "Literature"
                         },
                         new
                         {
-                            ProductId = 8,
+                            ProductId = 9,
+                            CategoryId = 2,
+                            ProductName = "Textbook"
+                        },
+                        new
+                        {
+                            ProductId = 10,
+                            CategoryId = 3,
+                            ProductName = "T-Shirt"
+                        },
+                        new
+                        {
+                            ProductId = 11,
                             CategoryId = 3,
                             ProductName = "Jeans"
+                        },
+                        new
+                        {
+                            ProductId = 12,
+                            CategoryId = 3,
+                            ProductName = "Jacket"
+                        },
+                        new
+                        {
+                            ProductId = 13,
+                            CategoryId = 3,
+                            ProductName = "Sweater"
+                        },
+                        new
+                        {
+                            ProductId = 14,
+                            CategoryId = 4,
+                            ProductName = "Dining Table"
+                        },
+                        new
+                        {
+                            ProductId = 15,
+                            CategoryId = 4,
+                            ProductName = "Chair"
                         });
                 });
 

@@ -10,7 +10,7 @@ public class ProductController : Controller
         _context = context;
     }
 
-    public ActionResult Index(int page = 1, int pageSize = 10)
+    public IActionResult Index(int page = 1, int pageSize = 10)
     {
         var productsQuery = _context.Products
             .Include(p => p.Category)
