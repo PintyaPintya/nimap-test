@@ -44,6 +44,15 @@ public class CategoryController : Controller
     {
         if (ModelState.IsValid)
         {
+            bool categoryExists = _context.Categories
+                .Any(c => c.CategoryName.ToLower() == category.CategoryName.ToLower());
+
+            if (categoryExists)
+            {
+                ModelState.AddModelError("CategoryName", $"A category with the name '{category.CategoryName}' already exists.");
+                return View(category);
+            }
+
             _context.Categories.Add(category);
             _context.SaveChanges();
             return RedirectToAction("Index");
@@ -66,6 +75,15 @@ public class CategoryController : Controller
     {
         if (ModelState.IsValid)
         {
+            bool categoryExists = _context.Categories
+                .Any(c => c.CategoryName.ToLower() == category.CategoryName.ToLower());
+
+            if (categoryExists)
+            {
+                ModelState.AddModelError("CategoryName", $"A category with the name '{category.CategoryName}' already exists.");
+                return View(category);
+            }
+            
             _context.Update(category);
             _context.SaveChanges();
             return RedirectToAction("Index");

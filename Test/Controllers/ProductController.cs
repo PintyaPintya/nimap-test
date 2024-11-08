@@ -42,6 +42,16 @@ public class ProductController : Controller
     {
         if (ModelState.IsValid)
         {
+            bool productExists = _context.Products
+                .Any(c => c.ProductName.ToLower() == product.ProductName.ToLower());
+
+            if (productExists)
+            {
+                ModelState.AddModelError("ProductName", $"A product with the name '{product.ProductName}' already exists.");
+                ViewBag.Categories = _context.Categories.ToList(); 
+                return View(product);
+            }
+
             _context.Products.Add(product);
             _context.SaveChanges();
             return RedirectToAction("Index");
@@ -66,6 +76,16 @@ public class ProductController : Controller
     {
         if (ModelState.IsValid)
         {
+            bool productExists = _context.Products
+                .Any(c => c.ProductName.ToLower() == product.ProductName.ToLower());
+
+            if (productExists)
+            {
+                ModelState.AddModelError("ProductName", $"A product with the name '{product.ProductName}' already exists.");
+                ViewBag.Categories = _context.Categories.ToList(); 
+                return View(product);
+            }
+
             _context.Update(product);
             _context.SaveChanges();
             return RedirectToAction("Index");
