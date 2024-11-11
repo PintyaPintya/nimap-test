@@ -4,30 +4,46 @@ using Microsoft.EntityFrameworkCore;
 public class ProductController : Controller
 {
     private readonly ApplicationDbContext _context;
+    private readonly IProductRepository _productRepository;
 
-    public ProductController(ApplicationDbContext context)
+    public ProductController(ApplicationDbContext context, IProductRepository productRepository)
     {
         _context = context;
+        _productRepository = productRepository;
     }
 
     public IActionResult Index(int page = 1, int pageSize = 10)
     {
-        var productsQuery = _context.Products
-            .Include(p => p.Category)
-            .OrderBy(p => p.ProductId);
+        // var productsQuery = _context.Products
+        //     .Include(p => p.Category)
+        //     .OrderBy(p => p.ProductId);
 
-        var totalItems = productsQuery.Count();
+        // var totalItems = productsQuery.Count();
 
-        var products = productsQuery
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
-            .ToList();
+        // var products = productsQuery
+        //     .Skip((page - 1) * pageSize)
+        //     .Take(pageSize)
+        //     .ToList();
+
+        var response = _productRepository.GetList(page, pageSize);
+
+        int totalPages = (int)Math.Ceiling((double)response.TotalCount / pageSize);
+
+        if (page < 1)
+        {
+            page = 1;
+        }
+        else if (page > totalPages)
+        {
+            page = totalPages;
+            response = _productRepository.GetList(page, pageSize);
+        }
 
         ViewBag.CurrentPage = page;
         ViewBag.PageSize = pageSize;
-        ViewBag.TotalItems = totalItems;
+        ViewBag.TotalPages = totalPages;
 
-        return View(products);
+        return View(response.Products);
     }
 
 
@@ -42,18 +58,27 @@ public class ProductController : Controller
     {
         if (ModelState.IsValid)
         {
-            bool productExists = _context.Products
-                .Any(c => c.ProductName.ToLower() == product.ProductName.ToLower());
+            // bool productExists = _context.Products
+            //     .Any(c => c.ProductName.ToLower() == product.ProductName.ToLower());
 
-            if (productExists)
+            // if (productExists)
+            // {
+            //     ModelState.AddModelError("ProductName", $"A product with the name '{product.ProductName}' already exists.");
+            //     ViewBag.Categories = _context.Categories.ToList(); 
+            //     return View(product);
+            // }
+
+            // _context.Products.Add(product);
+            // _context.SaveChanges();
+
+            var response = _productRepository.Create(product);
+
+            if (!response)
             {
                 ModelState.AddModelError("ProductName", $"A product with the name '{product.ProductName}' already exists.");
-                ViewBag.Categories = _context.Categories.ToList(); 
+                ViewBag.Categories = _context.Categories.ToList();
                 return View(product);
             }
-
-            _context.Products.Add(product);
-            _context.SaveChanges();
             return RedirectToAction("Index");
         }
         ViewBag.Categories = _context.Categories.ToList();
@@ -76,32 +101,46 @@ public class ProductController : Controller
     {
         if (ModelState.IsValid)
         {
-            bool productExists = _context.Products
-                .Any(c => c.ProductName.ToLower() == product.ProductName.ToLower());
+            // bool productExists = _context.Products
+            //     .Any(c => c.ProductName.ToLower() == product.ProductName.ToLower());
 
-            if (productExists)
+            // if (productExists)
+            // {
+            //     ModelState.AddModelError("ProductName", $"A product with the name '{product.ProductName}' already exists.");
+            //     ViewBag.Categories = _context.Categories.ToList();
+            //     return View(product);
+            // }
+
+            // _context.Update(product);
+            // _context.SaveChanges();
+
+            var response = _productRepository.Edit(product);
+
+            if (!response)
             {
                 ModelState.AddModelError("ProductName", $"A product with the name '{product.ProductName}' already exists.");
-                ViewBag.Categories = _context.Categories.ToList(); 
+                ViewBag.Categories = _context.Categories.ToList();
                 return View(product);
             }
 
-            _context.Update(product);
-            _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
         ViewBag.Categories = _context.Categories.ToList();
         return View(product);
     }
 
     public IActionResult Delete(int id)
     {
-        var product = _context.Products.Find(id);
+        var product = _context.Products
+            .Include(p => p.Category)
+            .FirstOrDefault(p => p.ProductId == id);
+
         if (product == null)
         {
             return NotFound();
-
         }
+
         return View(product);
     }
 

@@ -43,9 +43,9 @@
         <a href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1, pageSize = ViewBag.PageSize })" class="btn btn-primary">Previous</a>
     }
 
-    <span>Page @ViewBag.CurrentPage of @Math.Ceiling((double)ViewBag.TotalItems / ViewBag.PageSize)</span>
+    <span>Page @ViewBag.CurrentPage of @ViewBag.TotalPages</span>
 
-    @if (ViewBag.CurrentPage * ViewBag.PageSize < ViewBag.TotalItems)
+    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
     {
         <a href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1, pageSize = ViewBag.PageSize })" class="btn btn-primary">Next</a>
     }
