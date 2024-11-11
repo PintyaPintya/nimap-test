@@ -4,5 +4,6 @@ public interface IProductRepository
     bool Create(Product product);
 
     bool Edit(Product product);
+    bool Delete(int id);
     
 }

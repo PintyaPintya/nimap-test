@@ -66,4 +66,19 @@ public class ProductRepository : IProductRepository
     }
 
 
+    public bool Delete(int id)
+    {
+        var product = _context.Products.Find(id);
+
+        if(product == null)
+        {
+            return false;
+        }
+
+        _context.Products.Remove(product);
+        _context.SaveChanges();
+        
+        return true;
+    }
+
 }

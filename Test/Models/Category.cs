@@ -4,3 +4,10 @@ public class Category
     public required string CategoryName { get; set; }
     public List<Product> Products { get; set; } = new List<Product>();
 }
+
+public class CategoryResponse
+{
+    public List<Category>? Categories { get; set; }
+    public int TotalCount { get; set; }
+
+}

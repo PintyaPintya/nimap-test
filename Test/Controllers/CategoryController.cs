@@ -3,35 +3,35 @@ using Microsoft.AspNetCore.Mvc;
 public class CategoryController : Controller
 {
     private readonly ApplicationDbContext _context;
+    private readonly ICategoryRepository _categoryRepository;
 
-    public CategoryController(ApplicationDbContext context)
+    public CategoryController(ApplicationDbContext context, ICategoryRepository categoryRepository)
     {
         _context = context;
+        _categoryRepository = categoryRepository;
     }
-
-    // public IActionResult Index()
-    // {
-    //     var categories = _context.Categories.ToList();
-    //     return View(categories);
-    // }
 
     public IActionResult Index(int page = 1, int pageSize = 10)
     {
-        var categoriesQuery = _context.Categories
-            .OrderBy(p => p.CategoryId);
+        var response = _categoryRepository.GetList(page, pageSize);
 
-        var totalCategories = categoriesQuery.Count();
+        int totalPages = (int)Math.Ceiling((double)response.TotalCount / pageSize);
 
-        var categories = categoriesQuery
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
-            .ToList();
+        if (page < 1)
+        {
+            page = 1;
+        }
+        else if (page > totalPages)
+        {
+            page = totalPages;
+            response = _categoryRepository.GetList(page, pageSize);
+        }
 
         ViewBag.CurrentPage = page;
         ViewBag.PageSize = pageSize;
-        ViewBag.TotalItems = totalCategories;
+        ViewBag.TotalPages = totalPages;
 
-        return View(categories);
+        return View(response.Categories);
     }
 
     public IActionResult Create()
@@ -44,17 +44,14 @@ public class CategoryController : Controller
     {
         if (ModelState.IsValid)
         {
-            bool categoryExists = _context.Categories
-                .Any(c => c.CategoryName.ToLower() == category.CategoryName.ToLower());
+            bool response = _categoryRepository.Create(category);
 
-            if (categoryExists)
+            if (!response)
             {
                 ModelState.AddModelError("CategoryName", $"A category with the name '{category.CategoryName}' already exists.");
                 return View(category);
             }
 
-            _context.Categories.Add(category);
-            _context.SaveChanges();
             return RedirectToAction("Index");
         }
         return View(category);
@@ -75,17 +72,14 @@ public class CategoryController : Controller
     {
         if (ModelState.IsValid)
         {
-            bool categoryExists = _context.Categories
-                .Any(c => c.CategoryName.ToLower() == category.CategoryName.ToLower());
+            bool response = _categoryRepository.Edit(category);
 
-            if (categoryExists)
+            if (!response)
             {
                 ModelState.AddModelError("CategoryName", $"A category with the name '{category.CategoryName}' already exists.");
                 return View(category);
             }
             
-            _context.Update(category);
-            _context.SaveChanges();
             return RedirectToAction("Index");
         }
         return View(category);
@@ -105,13 +99,12 @@ public class CategoryController : Controller
     [HttpPost, ActionName("Delete")]
     public IActionResult DeleteConfirmed(int id)
     {
-        var category = _context.Categories.Find(id);
-        if (category == null)
+        bool success = _categoryRepository.Delete(id);
+
+        if (!success)
         {
             return NotFound();
         }
-        _context.Categories.Remove(category);
-        _context.SaveChanges();
 
         return RedirectToAction("Index");
     }
