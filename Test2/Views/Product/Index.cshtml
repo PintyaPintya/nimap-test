@@ -1,0 +1,48 @@
+@model List<Product>;
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<a href="@Url.Action("Create")" class="btn btn-primary">Create Product</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Category Id</th>
+            <th>Category Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var product in Model)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>@product.ProductName</td>
+                <td>@product.CategoryId</td>
+                <td>@product.Category.CategoryName</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = product.ProductId })" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = product.ProductId })" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @if(ViewBag.CurrentPage > 1)
+    {
+        <a href="@Url.Action("Index", new {page = ViewBag.CurrentPage - 1})" class="btn btn-primary">Previous</a>
+    }
+    
+    <span>@ViewBag.CurrentPage of @ViewBag.TotalPages</span>
+
+    @if(ViewBag.CurrentPage < ViewBag.TotalPages)
+    {
+        <a href="@Url.Action("Index", new {page = ViewBag.CurrentPage + 1})" class="btn btn-primary">Next</a>
+    }
+</div>

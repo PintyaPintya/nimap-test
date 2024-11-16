@@ -1,0 +1,20 @@
+@model Product
+
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<h2>Delete Product</h2>
+
+<p>Are you sure you want to delete '@Model.ProductName' ?</p>
+
+<br>
+
+<form asp-action="Delete">
+    <input asp-for="ProductId" type="number" hidden value="@Model.ProductId">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<br>
+
+<a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
